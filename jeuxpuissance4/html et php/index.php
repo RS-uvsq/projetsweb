@@ -230,7 +230,7 @@ $app->register(new Silex\Provider\DoctrineServiceProvider(),
 	  
 	  
   });
-  
+  //enregistrement du joueur
    $app->match('/signup', function(Application $app,Request $req) {
        
       if( $req->getMethod()=="POST")
