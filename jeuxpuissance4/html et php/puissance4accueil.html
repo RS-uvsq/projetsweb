@@ -1,0 +1,95 @@
+
+
+
+<!DOCTYPE html>
+<html>
+
+   <head>
+      <meta charset="utf-8" />
+      <link rel="stylesheet"  href="web/puissance4.css" />
+      <title>Acceuil du jeux puissance 4</title>
+      <script >
+         function valid()
+         {
+           var e1=document.getElementById("pass1").value;
+          
+           
+           var nom_joueur1=document.getElementById("play1").value; 
+           
+          
+           nom_joueur1=nom_joueur1 ? nom_joueur1 : 0 ;
+           e1=e1 ? e1 : 0 ;
+           
+          var mot="";
+          var txt=document.getElementById('warn');
+          var tt=txt.firstChild;
+           if(tt)
+               txt.removeChild(tt);
+             
+         //Si les champs sont remplis et que les coueleurs choisis sont distinct
+           
+           
+         
+           if( nom_joueur1==0  )
+           {
+            mot=document.createTextNode( "veuillez vous identifié!");
+            txt.appendChild(mot);
+             return false;
+           }
+          
+         	  else
+             
+                if( e1==0  )
+               {
+                   mot=document.createTextNode( "veuillez définir votre  mot  de passe !");
+                   txt.appendChild(mot);
+         		   return false;
+               }
+               
+              
+          
+           else
+           {
+         	document.formSaisie.submit();
+         	}
+         }
+      </script>
+   </head>
+   <body id="ac1">
+ 
+      <h1>Puissance 4 Game </h1>
+        
+      <span id="uvsq" style="color:#99FF33" >Projet dirigé par <a href="http://defeo.lu/" id="def" >Luca De Feo</a></span>
+       
+            <div class="traitgauche">
+       </div>
+      <fieldset id="f1" style="width:565px;height:170px;margin-left:8%;margin-top:10%">
+          
+         <form action="/puissance4/yors"  method="POST"  name="formSaisie" onsubmit="return valid()">
+         <p>
+           <label style="font-family:Comic Sans MS;position:relative;right:34px;color:white"> joueur :</label>
+            <input list="name1"  type="text" name="play1" value="" id="play1" style="width:155px;height:30px;position:absolute;left:105px;" />
+             <label style="font-family:Comic Sans MS;position:relative;left:159px;color:white"> mot de passe:</label>
+            <input  type="password" name="pass1" value="" id="pass1" style="width:155px;height:30px;margin-left:160px" />
+	 
+	<datalist id="name1">
+	 {% if tablebd is defined %}
+	  {% for u in tablebd %}
+  <option value= {{ u['log'] }} >
+   {% endfor %}
+   {% endif %}
+  </datalist>
+            </p>
+           
+           
+             
+           <input type="submit"  value="Se connecter" style="width:120px;height:30px;margin-left:115px;margin-top:25px;font-weight:bolder;font-family:Comic Sans MS;" />
+           
+            <a  href="/puissance4/signup" style="position:relative;left:120px;color:#99FF33"> s'enrégistrer</a>
+         </form>
+          <span id="warn" style="font-weight:bolder;margin-left:0%;color:red;font-family:Comic Sans MS;">{{ message}}</span>
+      </fieldset>
+     
+     >
+   </body>
+</html>

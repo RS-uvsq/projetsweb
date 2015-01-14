@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width" />
+      <link rel="stylesheet"  href="web/puissance4.css" />
+      <title>Jeu Puissance4</title>
+       <script src="web/jquery.js" > </script>
+       
+         <script src="web/puissance4.js"></script>
+   </head>
+   <body id="ac1"  onload="update1();">
+   <div style="position:absolute;right:15%;top:3%;width:200px;
+    height:171px;
+    margin:auto;
+   overflow:hidden; text-align:center;">
+    {% if photo1==-1 %}
+         <img   src="web/prof.jpg" alt="vsq" height=171px  >
+        {%  else %}
+         <img   src=web/image/{{photo1}} alt="vsq" height=171px   >
+          {%  endif %}
+         
+  </div>
+  <div  style="position:absolute;left:17%;top:5%;width:200px;
+    height:171px;
+    margin:auto;
+   overflow:hidden; text-align:center;">
+   
+    {% if photo2==-1 %}
+         <img   src="web/prof.jpg" alt="vsq" height=171px >
+        {%  else %}
+         <img   src=web/image/{{photo2}} alt="vsq" height=171px  >
+          {%  endif %}
+		 </div>
+      <fieldset id="f2" style="width:30px;height:609px;margin-left:15%;" >
+       
+         <h2>jeux de puissance 4 </h2>
+         
+         
+         <span id="uvsq" style="position:fixed;" >Projet dirigé par <a href="http://defeo.lu/" id="def" >Luca De Feo</a></span>
+          <span id="tour" style="color:red;font-weight:bolder;font-family: 'Arial';margin-left:29px;margin-top:250px;" ></span>
+         <ul  class="pet">
+            <li>
+             
+               <h2> {{ n1 }} :</h2>
+            </li>
+            {% if c1=="vide" %}
+             {% set c1="vert" %}
+             <li id="vert"> </li>
+               {% else %}
+            <li id= {{ c1 }}> </li>
+             {% endif %}
+            {% if S1 is defined %}
+            <li  >
+               <h2> score :<input type="text" name="c1" value={{ S1 }} id="c1" style="width:46px;height:25px;" readonly/> </h2>
+            </li>
+            {% endif%}
+            <li>
+               <h2> {{ n2 }} :</h2>
+            </li>
+            {% if c2==c1 and c1=="rouge" %}
+              {% set c2="jaune" %}
+             <li id="jaune"> </li>
+			 {% else %}
+             {% if c2==c1 and c1=="jaune" %}
+              {% set c2="rouge" %}
+             <li id="rouge"> </li>
+			 {% else %} 
+        
+            {% if c2=="vide" and c1!="vert" %}
+			{% set c2="vert" %}
+             <li id="vert"> </li>
+             {% else %}
+            {% if c2=="vide"  %}
+			{% set c2="jaune" %}
+             <li id="jaune"> </li>
+              {% else %}
+              
+            <li id={{ c2 }}> </li>
+            {% endif %}
+			  {% endif %}
+			  {% endif %}
+			   {% endif %}
+              
+            {% if  S2 is defined %}
+            <li   >
+               <h2>  score : <input type="text" name="c2" value={{ S2  }} id="c2" style="width:46px;height:25px;" readonly/></h2>
+            </li>
+            {% endif%}
+         </ul>
+          
+         <div id="game">
+         </div>
+         <span id="somme" style='color:red;margin-left:2px;font-family: "Comic Sans MS";'></span>
+         <br/><br/>
+         <p id="texte" style="font-weight:bolder;font-family:Comic Sans MS;visibility: hidden;" >Voulez vous continuer?</p>
+         
+         <p id="cache1"></p>
+         <p id="cache2"></p>
+       
+         
+         <script >
+            var nam1="{{n1}}";
+            var nam2="{{n2}}";
+            var  sc1={{ S1 }};
+			var  part={{part}};
+           var put=1;
+           var m="";
+           var  rep=0;
+            var sc2={{ S2 }};
+            var co1="{{c1}}";//en ecrivant co1 et co2 de la même manière que sc1 et sc2 les couleurs ne sont pas bien affecté lors du jeux
+            var co2="{{c2}}";
+            var id={{id}};
+            var vale=1;
+             var ligne = 6; //nombre de ligne de la table de jeux
+      var coln = 7;  //nombre de colone de la table de jeux
+     var clic=0;
+      var boo = 1;
+      var h = 1;
+      var gh=1;
+      var fi=0;
+      var tyj = ""; //stock le numéro du joueur qui joue à l'instant
+
+      var mem = 0; //identifie le numéro de la ligne de la table de jeux
+      var o=0;
+      var ply = 0; // est un string qui memorise le dernier joueur qui a joué: Il prend deux valeurs :joueur1 ou joueur2
+
+       var cliquer=0;//permet de limiter le nombre de clique à 1 ,d'un joueur pour permettre le joueur adverse de jouer
+      var ic = 0; //identifie le numéro de la colone de la table de jeux
+
+      var bl = -1; // booléen qui permet de savoir si un joueur à aligner  ses 4 couleurs :il prend deux valeur 1 (si ouis) 0(si non)
+	  var te=0;
+	   var tabl=[];
+	   var fat=0;
+     var debut=1;//initialise uniquement 
+     var temp="";//memorise le tour precedent du joueur
+      var fin = 0; // indique si il y'a eu un gagnat si oui fin=2
+             
+            var monplateau=new Array();
+            var end1="";
+             var tabe_1 = new Array();
+           var  finalgame=1;
+             var turn = 1; // turn  prend les valeurs 1 et 2.Il identifie le numero du joueur qui joue :1->joueur1,:2->joueur2 
+            var tabe ="";
+      
+            var game1=new Game();
+            
+         </script>
+         
+     
+      </fieldset>
+   </body>
+</html>

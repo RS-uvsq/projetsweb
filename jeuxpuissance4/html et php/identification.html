@@ -1,0 +1,293 @@
+<html>
+   <head>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width" />
+      <link rel="stylesheet"  href="web/database.css" />
+      <title>Identification Jeu Puissance4</title>
+      <script >
+         function valid()
+         {
+           
+           
+           var nom_joueur1=document.getElementById("login").value; 
+		   var repass=document.getElementById("repass").value; 
+          
+           var pass1=document.getElementById("pass").value; 
+          
+            
+           nom_joueur1=nom_joueur1 ? nom_joueur1 : 0 ;
+           pass1=pass1 ? pass1 : 0 ;
+          
+          var mot="";
+          var txt=document.getElementById('po');
+          var nom=document.getElementById('nom').value;
+           var prenom=document.getElementById('prenom').value;
+          var tx=document.getElementById('pas');
+          var pas=tx.firstChild;
+          var tt=txt.firstChild;
+           nom=nom ? nom: 0 ;
+            prenom=prenom ?prenom : 0 ;
+          
+             
+         //Si les champs sont remplis et que les coueleurs choisis sont distinct
+         if( nom==0  && prenom==0  )
+               {
+                   if(tt)
+				   {
+				      
+                   if(pas)
+               tx.removeChild(pas);
+               
+			   
+			  
+            
+				   txt.style.visibility="visible";
+               txt.removeChild(tt);
+               
+			   
+			   }
+           
+                   mot=document.createTextNode( "Veuillez définir votre Nom  et votre  prénom!");
+                   txt.appendChild(mot);
+                  
+				   window.location.href="#y";
+				  
+
+         		   return false;
+               }
+               else
+               if( nom==0 )
+               {
+                  if(tt)
+				   {
+				        if(pas)
+               tx.removeChild(pas);
+				    txt.style.visibility="visible";
+               txt.removeChild(tt);
+
+			   }
+           
+                   mot=document.createTextNode( "Veuillez Renseigner votre nom !");
+                   txt.appendChild(mot);
+                     window.location.href="#y";
+         		   return false;
+               }
+               else
+               if( prenom==0 )
+               {
+                  if(tt)
+				   {
+				        if(pas)
+               tx.removeChild(pas);
+				    txt.style.visibility="visible";
+               txt.removeChild(tt);
+
+			   }
+           
+                   mot=document.createTextNode( "Veuillez définir votre prénom !");
+                   txt.appendChild(mot);
+                     window.location.href="#y";
+         		   return false;
+               }
+               else
+               
+               
+               
+		 if( nom_joueur1==0  && pass1==0  )
+               {
+                   if(tt)
+				   {
+				      
+                   if(pas)
+               tx.removeChild(pas);
+               
+			   
+			  
+            
+				   txt.style.visibility="visible";
+               txt.removeChild(tt);
+               
+			   
+			   }
+           
+                   mot=document.createTextNode( "Veuillez définir votre login  et votre mot passe!");
+                   txt.appendChild(mot);
+				   window.location.href="#y";
+				  
+
+         		   return false;
+               }
+         	  else
+			  if( nom_joueur1==0 )
+               {
+                  if(tt)
+				   {
+				        if(pas)
+               tx.removeChild(pas);
+				    txt.style.visibility="visible";
+               txt.removeChild(tt);
+
+			   }
+           
+                   mot=document.createTextNode( "Veuillez définir votre login !");
+                   txt.appendChild(mot);
+                     window.location.href="#y";
+         		   return false;
+               }
+             
+           
+           else
+               
+             if(pass1==0 ) {
+               
+               
+         if(tt)
+				   {
+				        if(pas)
+               tx.removeChild(pas);
+				    txt.style.visibility="visible";
+               txt.removeChild(tt);
+			   
+			   }
+             mot=document.createTextNode("Veuillez définir votre  mot de passe  !");
+             txt.appendChild(mot);
+               window.location.href="#y";
+             return false;
+             
+           }
+		   if(repass==0)
+		   {
+		   if(tt)
+				   {
+				        if(pas)
+               tx.removeChild(pas);
+				    txt.style.visibility="visible";
+               txt.removeChild(tt);
+			  
+			   }
+             mot=document.createTextNode("Veuillez Ressaisir votre  mot de passe !");
+             txt.appendChild(mot);
+               window.location.href="#y";
+			 return false;
+		   }
+		   else
+		    if(repass!=pass1)
+		   {
+		   if(tt)
+				   { if(pas)
+               tx.removeChild(pas);
+				       
+				    txt.style.visibility="visible";
+               txt.removeChild(tt);
+			  
+			   }
+             mot=document.createTextNode("Le mot de passe ressaisi n'est pas identique au premier!");
+             txt.appendChild(mot);
+               window.location.href="#y";
+			 return false;
+		   }
+		   
+           
+           else
+           
+           {
+           
+         
+         	document.formSaisie.submit();
+         	}
+         }
+      </script>
+   </head>
+<body >
+
+       {% if pass is defined %}
+        {% set v=pass?pass:0  %}
+         {% if v!=0 %}
+       <script>
+        window.location.href="#y";
+       </script>
+        </script>
+        {% endif %}
+        {% endif %}
+         
+         
+     
+         
+        
+       
+
+ <form method="post" action="/puissance4/signup" name="formSaisie" onsubmit="return valid()"  enctype="multipart/form-data">
+<fieldset id="f1" style="width:540px;height:820px;margin-left:12%;margin-top:3%;">
+
+<img id="y" src="web/newuvsq.jpg" alt="vsq"  ><span style="color:red;font-family:Comic Sans MS;"> <span id="pas" >{{pass}}</span> </span><span id="po" style="visibility: hidden;font-family:Comic Sans MS;color:red;" >Jeux puissance4</span> </img>
+
+
+
+<h3 id="logo" style="padding-left:0px;padding-top:75px;width:560px;font-weight:bolder;font-size:160%;"> <span  style="padding-left:125px;"><span style="text-decoration:underline;font-weight:bolder;color:red;">I</span>nsc<span style="font-weight:bolder;color:red;">rip</span>tion - <span style="text-decoration:underline;font-weight:bolder;color:red;">P</span>uis<span style="font-weight:bolder;color:red;">san</span>ce4 <span style="text-decoration:underline;font-weight:bolder;color:red;">G</span>ame </span></h3>
+
+ <p style="padding-left:11px;padding-top:45px;">
+		   
+           <label style="font-family:Comic Sans MS;"><span style="text-decoration:underline;font-weight:bolder;color:blue;">N</span>om:</label> 
+		   <label style="font-family:Comic Sans MS;padding-left:185px;"><span style="text-decoration:underline;font-weight:bolder;color:blue;">P</span>rénom:</label> 
+ </p>
+ <p style="padding-left:11px;padding-top:0px;">
+          <input type="text" name="nom" value="" id="nom" style="width:220px;height:30px;" />
+		  <input type="text" name="prenom" value="" id="prenom" style="width:270px;height:30px;" />
+         </p >
+          <p style="padding-left:140px;padding-top:6px;">
+           <label style="font-family:Comic Sans MS"><span style="text-decoration:underline;font-weight:bolder;color:blue;">L</span>ogin:</label>
+    	   
+           </p>
+           <p  style="padding-left:135px;padding-top:0px;">
+		   <input type="text" name="login" value="" id="login" style="width:295px;height:30px;" />
+		    </p>
+		 <p style="padding-left:140px;padding-top:6px;">
+           <label style="font-family:Comic Sans MS"><span style="text-decoration:underline;font-weight:bolder;color:blue;">M</span>ot de passe:</label>
+    	   
+           </p>
+		    <p  style="padding-left:135px;padding-top:0px;">
+		   <input type="password" name="pass" value="" id="pass" style="width:295px;height:30px;" />
+		    </p>
+			<p style="padding-left:135px;padding-top:0px;">
+			<label style="font-family:Comic Sans MS"><span style="text-decoration:underline;font-weight:bolder;color:blue;">R</span>essaisire votre mot de passe:</label> 	
+			</p>
+			<p  style="padding-left:135px;padding-top:0px;">
+		   <input type="password" name="repass" value="" id="repass" style="width:295px;height:30px;" />
+		    </p>
+			<p  style="padding-left:35px;padding-top:10px;">
+			
+			 <label id="picture" style="font-family:Comic Sans MS;padding-left:0px;"><span style="text-decoration:underline;font-weight:bolder;color:blue;">P</span>hoto:</label>
+			
+			 
+			 <label id="styl" style="font-family:Comic Sans MS;padding-left:105px;"><span style="text-decoration:underline;font-weight:bolder;color:blue;">C</span>ouleur par defaut:       <span style="text-decoration:underline;font-weight:bolder;color:green;">V</span>ert</label>
+			 
+			   
+		   </p>
+		   <p style="font-family:Comic Sans MS;padding-left:35px;" >
+		   <input type="file" name="file"  id="file"  style="width:210px;height:30px;" />
+		   </p>
+		   
+		   <label style="font-family:Comic Sans MS"> <span style="text-decoration:underline;font-weight:bolder;color:blue;">C</span>ouleur préférée :</label>
+		   <p style="padding-left:px;padding-top:0px;">
+		  
+		   <select name="couleur1" id="couleur1"  style="width:75px;height:25px;">
+             
+			<option value="vide" ></option>
+               <option value="rouge" >Rouge</option>
+               <option value="jaune" >Jaune</option>
+            </select>
+			
+			
+			
+			</p>
+			<p style="padding-left:225px;">
+			<input id ="but" type="submit"  value="Valider" style="font-weight:bolder;font-family:Comic Sans MS;height:35px;width:115px;" />
+			</p>
+</fieldset>
+</form>
+</body>
+
+
+
+
+</html>
